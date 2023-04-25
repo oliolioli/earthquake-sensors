@@ -1,9 +1,9 @@
 /* 
 Please do not change the name of this file. 
 
-Name (of all group members):
-Date:
-Program runs (yes or no, because): 
+Name (of all group members): Olivier Meier
+Date: 25.4.22
+Program runs (yes or no, because): yes
 */
 
 // Libraries
@@ -38,10 +38,10 @@ int readFile(char * nameOfFile, double * tableToFill, int length) {
 // Main
 int main(int argc, char * argv[]) {
 	double earthquake[11000];
-	int length = readFile("earthquake1", earthquake, 11000);
-	
+
 	// earthquake now contains the values of the "earthquake1" file
 	// (11000 entries total, length of entries used, the other entries are not initialized)
+	int length = readFile("earthquake1", earthquake, 11000);
 
 	return 0;
 }
