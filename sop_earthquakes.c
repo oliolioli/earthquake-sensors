@@ -41,7 +41,7 @@ int main(int argc, char * argv[]) {
 
 	// earthquake now contains the values of the "earthquake1" file
 	// (11000 entries total, length of entries used, the other entries are not initialized)
-	int length = readFile("earthquake1", earthquake, 11000);
+	int length = readFile("earthquake-multiple", earthquake, 11000);
 
 	// Find the beginning of the earthquake and display the number of the entry. We say that there is an earthquake if the absolute value of the signal exceeds 20.0. (You can try with other thresholds.)
 	// Look for the end of the earthquake, and display the number of the entry. The earthquake is said to be over if 200 consecutive values are below the threshold.
@@ -58,6 +58,7 @@ int main(int argc, char * argv[]) {
 	int   endOfEarthQuake = 0;
 
 	double earthquakeEnergy = 0;
+	int    tmpEnergy = 0;
 
 	// Now search local minimum and maximum
 	for (int i=0; i<=length; ++i) {
@@ -88,20 +89,35 @@ int main(int argc, char * argv[]) {
 				// and display the number of the entry. 
 				if (diffLocalMinMax > 20 && beginOfEarthQuake == 0) {
 						beginOfEarthQuake = i;
-						printf("Eartquake begins at position %d\n", i);
+						printf("Eartquake begins at: %d\n", i);
 				}
 
 				// Look for the end of the earthquake, and display the number of the entry. 
 				// The earthquake is said to be over if 200 consecutive values are below the threshold.
 				if (beginOfEarthQuake > 0 && diffLocalMinMax < 20) {
-					earthquakeOver++;
 
-					if (earthquakeOver > 199) {
+					if (earthquakeOver == 199) {
 						endOfEarthQuake = i;
-						printf("Eartquake stops at position %d\n", endOfEarthQuake);
+						printf("Eartquake stops at: %d\n", endOfEarthQuake);
 						printf("Earthquakes length: %d\n", endOfEarthQuake - beginOfEarthQuake);
-						break;
+
+						// Calculate the energy of the earthquake, i.e. the sum of the square values (∑x²) between the beginning and the end.
+						for (int i=beginOfEarthQuake; i<=endOfEarthQuake; ++i) {
+							tmpEnergy = (int)earthquake[i];
+							earthquakeEnergy += tmpEnergy^2;
+						}
+						printf("Earthquakes total energy: %.2f\n---\n", earthquakeEnergy);
+
+						// Reset the counter and earthquake specific data and begin all over
+						earthquakeOver = 0;
+						beginOfEarthQuake = 0;
+						endOfEarthQuake = 0;
+						earthquakeEnergy = 0;
+
+					} else {
+						earthquakeOver++;
 					}
+
 				}				
 
 				// Reset changeOfSign to rebegin the counting of local min/max
@@ -116,13 +132,6 @@ int main(int argc, char * argv[]) {
 			
 		}
 	}
-
-	// Calculate the energy of the earthquake, i.e. the sum of the square values (∑x²) between the beginning and the end.
-	for (int i=beginOfEarthQuake; i<=endOfEarthQuake; ++i) {
-		earthquakeEnergy += (int)earthquake[i]^2;
-	}
-	printf("Earthquakes total energy: %.2f\n", earthquakeEnergy);
-
 
 	return 0;
 }
