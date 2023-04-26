@@ -41,7 +41,61 @@ int main(int argc, char * argv[]) {
 
 	// earthquake now contains the values of the "earthquake1" file
 	// (11000 entries total, length of entries used, the other entries are not initialized)
-	int length = readFile("earthquake1", earthquake, 11000);
+	int length = readFile("earthquake3", earthquake, 11000);
+
+	// A. Start and end
+	// Find the beginning of the earthquake and display the number of the entry. We say that there is an earthquake if the absolute value of the signal exceeds 20.0. (You can try with other thresholds.)
+	// Look for the end of the earthquake, and display the number of the entry. The earthquake is said to be over if 200 consecutive values are below the threshold.
+
+	float localMin = 0;
+	float localMax = 0;
+	float diffLocalMinMax = 0;
+	int   posLocalMin = 0;
+	int   posLocalMax = 0;
+	int   changeOfSign = 0;
+
+	// Now search local minimum and maximum
+	for (int i=0; i<=length; ++i) {
+
+		if (earthquake[i] < 0) {
+			// pick most negative value of all negative values (=local mininmum)
+			if (earthquake[i] < localMin) { localMin = earthquake[i]; }
+		} else if (earthquake[i] > 0) {
+			// pick most positive value of all positive values (=local maximum)
+			if (earthquake[i] > localMax) { localMax = earthquake[i]; }
+		}
+
+		// If sign gets changed, we set state change of sign (or if we arrive at end of file)
+		if ((earthquake[i] > 0 && earthquake[i+1] < 0) || (earthquake[i] < 0 && earthquake[i+1] > 0) || i > length - 2) {
+			printf("Vorzeichenwechsel!\n");
+			
+			// If we arrive at a second change of sign, we can calculate the difference (min/max)
+			if (changeOfSign == 1) {
+				// Calculate difference
+				diffLocalMinMax = localMax - localMin;
+
+				printf("i = %d. Periode abgeschlossen. LocalMin: %f, localMax: %f\n", i, localMin, localMax);
+				printf("Differenz: %f\n", diffLocalMinMax);
+				
+				// Reset changeOfSign to rebegin the counting of local min/max
+				changeOfSign = 0;
+				
+				// Reset local min/max
+				localMax = 0;
+				localMin = 0;
+			} else {
+				changeOfSign = 1;
+			}
+			
+		}
+	}
+
+
+	// B. Energy
+	// Calculate the energy of the earthquake, i.e. the sum of the square values (∑x²) between the beginning and the end.
+
+	// C. Several earthquakes
+	// Modify your program to detect several earthquakes. For each earthquake, display its beginning, its length, and its energy.
 
 	return 0;
 }
