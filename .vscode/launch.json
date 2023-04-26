@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": false,
-      "cwd": "/home/oli/Documents/uni/Informatik/SOP/LN07",
-      "program": "/home/oli/Documents/uni/Informatik/SOP/LN07/sop_earthquakes",
+      "cwd": "${workspaceFolder}",
+      "program": "${workspaceFolder}/sop_earthquakes",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
