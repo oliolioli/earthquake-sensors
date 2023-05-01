@@ -15,3 +15,5 @@ Calculate the energy of the earthquake, i.e. the sum of the square values (âˆ‘xÂ
 ## C. Several earthquakes ##
 Modify your program to detect several earthquakes. For each earthquake, display its beginning, its length, and its energy.
 
+
+(Exercise from https://sop.course-unifr.ch/#earthquakes)
