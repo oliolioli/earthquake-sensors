@@ -1,8 +1,8 @@
 # earthquake-sensors #
 
-A seismograph measures the ground movements continuously, but the interesting events - the earthquakes – are rare. With a program, we would like to find these events automatically.
+A seismograph measures the ground movements continuously, but the interesting events - the earthquakes – are rare. With this program, we would like to find these events automatically.
 
-We have the files of 3 earthquakes, and one file that contains several earthquakes.
+We have the data of 3 earthquakes, and one file that contains several earthquakes.
 
 ## A. Start and end ##
 Find the beginning of the earthquake and display the number of the entry. We say that there is an earthquake if the absolute value of the signal exceeds 20.0. (You can try with other thresholds.)
