@@ -1,4 +1,4 @@
-# earthquake-sensors #
+# Check sensor data for earthquakes #
 
 A seismograph measures the ground movements continuously, but the interesting events - the earthquakes – are rare. With this program, we would like to find these events automatically.
 
