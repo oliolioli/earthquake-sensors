@@ -1,6 +1,4 @@
 # Check sensor data for earthquakes #
-Analyzes ground movement data for earthquakes.
-
 A seismograph measures the ground movements continuously, but the interesting events - the earthquakes – are rare. With this program, we would like to find these events automatically.
 
 We have the data of 3 earthquakes, and one file that contains several earthquakes.
