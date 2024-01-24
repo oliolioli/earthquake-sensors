@@ -3,7 +3,6 @@ A seismograph measures the ground movements continuously, but the interesting ev
 
 ![](https://github.com/oliolioli/earthquake-sensors/blob/main/earthquake1.png)
 
-We have the data of 3 earthquakes, and one file that contains several earthquakes.
 
 ## Find start and end of an earthquake ##
 Find the beginning of the earthquake and display the number of the entry. We say that there is an earthquake if the absolute value of the signal exceeds 20.0. (You can try with other thresholds.)
