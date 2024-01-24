@@ -19,4 +19,4 @@ Detects several earthquakes. For each earthquake, it displays its beginning, its
 ![](https://github.com/oliolioli/earthquake-sensors/blob/main/earthquake2.png)
 ![](https://github.com/oliolioli/earthquake-sensors/blob/main/earthquake3.png)
 
-(Exercise from https://sop.course-unifr.ch/#earthquakes)
+(Originally an exercise done at University of Fribourg: https://sop.course-unifr.ch/#earthquakes)
