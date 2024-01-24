@@ -5,15 +5,15 @@ A seismograph measures the ground movements continuously, but the interesting ev
 
 
 ## Find start and end of an earthquake ##
-Find the beginning of the earthquake and display the number of the entry. We say that there is an earthquake if the absolute value of the signal exceeds 20.0. (You can try with other thresholds.)
+Finds the beginning of the earthquake and displays the number of the entry. We say that there is an earthquake if the absolute value of the **signal exceeds 20.0**.
 
-Look for the end of the earthquake, and display the number of the entry. The earthquake is said to be over if 200 consecutive values are below the threshold.
+Looks for the end of the earthquake, and displays the number of the entry. The earthquake is said to be over if 200 consecutive values are below the threshold.
 
 ## Calculate energy ##
-Calculate the energy of the earthquake, i.e. the sum of the square values (∑x²) between the beginning and the end.
+Calculates the energy of the earthquake, i.e. the sum of the square values (∑x²) between the beginning and the end.
 
 ## Detect several earthquakes ##
-Modify your program to detect several earthquakes. For each earthquake, display its beginning, its length, and its energy.
+Detects several earthquakes. For each earthquake, it displays its beginning, its length, and its energy.
 
 
 ![](https://github.com/oliolioli/earthquake-sensors/blob/main/earthquake2.png)
